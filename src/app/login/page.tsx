@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import axios from 'axios'
 
 export default function loginPage() {
-
+    const router = useRouter()
     const [userData, setUserData] = useState({
         email: '',
         password: '',
@@ -21,10 +21,9 @@ export default function loginPage() {
     }
 
     const onLogin = async () => {
-      console.log('from login', userData);
       try {
         const response = await axios.post('/api/users/login', userData)
-        console.log(response, 'lllllllllllllllll')
+        router.push('/home')
       } catch (error) {
         console.log(error); 
       }
