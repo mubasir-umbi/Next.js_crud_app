@@ -18,7 +18,6 @@ const ProfilePage = () => {
     const getUserDetails = async () => {
         try {
             const res = await axios.get('api/users/me')
-            console.log(res.data);
             setUserData(res.data)
         } catch (error: any) {
             console.log(error);
